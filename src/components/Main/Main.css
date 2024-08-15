@@ -1,0 +1,98 @@
+.main_page_container {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  grid-template-areas: "navbar navbar" "left-sidebar customer_details_section";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 1fr;
+  background-color: var(--bg-color);
+  transition: all 0.3s ease-in;
+}
+
+.main_page_container .main_page_navbar {
+  position: relative;
+  grid-area: navbar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+
+  font-size: var(--heading-font);
+  color: var(--heading-color);
+}
+.main_page_navbar .navbar_heading {
+  font-size: var(--heading-md-font);
+  color: var(--heading-color);
+}
+
+.main_page_container .main_page_left_sidebar {
+  grid-area: left-sidebar;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.main_page_container .main_page_customer_details_section {
+  grid-area: customer_details_section;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.main_page_container .switching_arrow {
+  position: fixed;
+  top: 70px;
+  left: calc(100vw - 30px);
+  z-index: 10;
+  /* color: #f9f9f9 ; */
+  transition: all 0.5s ease-in-out;
+}
+
+.main_page_container .switching_arrow_on_details_selected {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 680px) {
+  .main_page_container {
+    grid-template-columns: 35vw 1fr;
+  }
+  .main_page_container .switching_arrow {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 680px) {
+  .main_page_container .main_page_left_sidebar {
+    position: absolute;
+    grid-area: none;
+    top: 0;
+    z-index: 5;
+    background-color: var(--bg-color);
+    width: 100vw;
+    left: -100vw;
+    top: 60px;
+
+    transition: all 0.5s ease-in-out;
+  }
+  .main_page_container .main_page_left_sidebar_open {
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main_page_navbar .navbar_heading {
+    font-size: var(--heading-font);
+  }
+
+  .main_page_container {
+    grid-template-columns: 25vw 1fr;
+  }
+}
