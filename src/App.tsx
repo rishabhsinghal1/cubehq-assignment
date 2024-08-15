@@ -1,13 +1,13 @@
 import "./App.css";
-import Main from "./components/Main/Main";
+import Home from "./components/Home/Home";
 import { CustomerContextProvider } from "./Context/CustomerContext";
 
-function App() {
+const App: React.FC = () => {
   return (
     <CustomerContextProvider>
-      <Main />
+      <Home />
     </CustomerContextProvider>
   );
-}
+};
 
 export default App;
